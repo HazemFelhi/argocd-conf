@@ -13,9 +13,9 @@ spec:
     namespace: coffee-shop
   
   syncPolicy:
-    syncOption:
+    syncOptions:
     - CreateNamespace=true
 
     automated:
       selfHeal: true
-      purne: true
+      prune: true
