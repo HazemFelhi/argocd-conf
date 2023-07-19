@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook
+  name: application
   namespace: argocd
 spec:
   project: default
@@ -16,6 +16,6 @@ spec:
     syncOption:
     - CreateNamespace=true
 
-  automated:
-    selfHeal: true
-    purne: true
+    automated:
+      selfHeal: true
+      purne: true
