@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: https://github.com/HazemFelhi/argocd-conf.git
     targetRevision: HEAD
+    path: deployment
   destination:
     server: https://kubernetes.default.svc
     namespace: coffee-shop
