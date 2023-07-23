@@ -1,0 +1,34 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tekton-triggers
+  namespace: coffee-shop
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "tekton-triggers.cicd.com"
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tekton-triggers
+  namespace: coffee-shop
+spec:
+  hosts:
+  - "tekton-triggers.cicd.com"
+  gateways:
+  - tekton-triggers
+  http:
+  - route:
+    - destination:
+        host: coffee-shop-service
+        port:
+          number: 80
+---
