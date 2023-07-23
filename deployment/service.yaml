@@ -10,6 +10,6 @@ spec:
   - port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 3150
+    nodePort: 30150
 
   
