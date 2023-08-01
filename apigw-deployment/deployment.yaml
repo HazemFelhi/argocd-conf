@@ -15,7 +15,7 @@ spec:
       volumes:
       - name: config-volume
         configMap:
-          name: ConfigMap
+          name: api-gateway-config
           items:
           - key: "apigw.properties"
             path: "apigw.properties"
