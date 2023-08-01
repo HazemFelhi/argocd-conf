@@ -27,9 +27,9 @@ spec:
 ---
 
 apiVersion: argoproj.io/v1alpha1
-kind: Application-api-gateway
+kind: Application
 metadata:
-  name: application
+  name: application-api-gateway
   namespace: argocd
 spec:
   project: default
