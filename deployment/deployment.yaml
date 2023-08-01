@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: coffee-shop
+  name: eureka-server
 spec:
   selector:
     matchLabels:
-      app: coffee-shop
+      app: eureka-server
   replicas: 2
   template:
     metadata:
       labels:
-        app: coffee-shop
+        app: eureka-server
     spec:
       containers:
-      - name: coffee-shop
-        image: docker.io/hazemfelhi/cf:latest #docker.io/moohamedd/angular-app:v1 
+      - name: eureka-server
+        image: docker.io/hazemfelhi/eureka-server:latest #docker.io/moohamedd/angular-app:v1 
         ports:
-        - containerPort: 9090
+        - containerPort: 8761
