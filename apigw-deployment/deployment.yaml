@@ -12,8 +12,18 @@ spec:
       labels:
         app: api-gateway
     spec:
+      volumes:
+      - name: config-volume
+        configMap:
+          name: ConfigMap
+          items:
+          - key: "apigw.properties"
+            path: "apigw.properties"
       containers:
       - name: api-gateway
         image: docker.io/hazemfelhi/api-gateway:latest #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8080
+        volumeMounts:
+            - name: config-volume
+              mountPath: /config
