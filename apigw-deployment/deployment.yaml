@@ -21,9 +21,10 @@ spec:
             path: "apigw.properties"
       containers:
       - name: api-gateway
-        image: docker.io/hazemfelhi/api-gateway:latest #docker.io/moohamedd/angular-app:v1 
+        image: docker.io/hazemfelhi/api-gateway:latest #docker.io/moohamedd/angular-app:v1           
         ports:
         - containerPort: 8080
         volumeMounts:
             - name: config-volume
-              mountPath: /config
+              mountPath: "/config"
+              readOnly: true
