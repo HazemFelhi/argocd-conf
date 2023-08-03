@@ -9,8 +9,8 @@ spec:
     - host: microservice.eureka.com
       http:
         paths:
-          - path: /api
-            pathType: Prefix
+          - path:
+            #pathType: Prefix
             backend:
               service:
                 name: eureka-server-service
