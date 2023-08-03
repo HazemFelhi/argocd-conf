@@ -22,9 +22,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx-ingress
+  namespace: coffee-shop
   annotations:
     app.kubernetes.io/ingress.class: "nginx"
-    #nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
   - host: ingress-nginx.com
@@ -34,6 +35,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: 
-              port: eureka-server-service
+              name: eureka-server-service
+              port:
                 number: 8761
+
