@@ -14,5 +14,6 @@ spec:
             backend:
               service:
                 name: eureka-server-service
-                port:
-                  number: 8761
+                servicePort: 8761 
+                #port:
+                  #number: 8761
