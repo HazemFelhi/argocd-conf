@@ -30,7 +30,7 @@ spec:
     - host: ingress-nginx.com
       http:
         paths:
-          - path: /
+          - path: /eureka
             pathType: Prefix
             backend:
               service:
