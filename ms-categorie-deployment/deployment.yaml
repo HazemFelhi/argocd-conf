@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: ms-categorie
-        image: docker.io/hazemfelhi/ms-categorie:v2 #docker.io/moohamedd/angular-app:v1 
+        image: docker.io/hazemfelhi/ms-categorie:v3 #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8087
