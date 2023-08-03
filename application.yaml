@@ -29,14 +29,14 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: application-api-gateway
+  name: application-aconfig-server
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/HazemFelhi/argocd-conf.git
     targetRevision: HEAD
-    path: apigw-deployment
+    path: config-server-deployment
   destination:
     server: https://kubernetes.default.svc
     namespace: coffee-shop
