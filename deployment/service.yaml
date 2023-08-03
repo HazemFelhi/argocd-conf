@@ -9,7 +9,7 @@ spec:
   ports:
   - port: 8761
     protocol: TCP
-    targetPort: 8761
+    targetPort: 80
     #nodePort: 30155
 
   
