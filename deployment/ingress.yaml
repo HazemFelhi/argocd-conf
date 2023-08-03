@@ -36,4 +36,4 @@ spec:
             service:
               name: 
               port: eureka-server-service
-                number: 8761
+                number: 80
