@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-config
+data:
+  categorie.properties: |-
+    spring.datasource.url=jdbc:postgresql://postgres-service:5432/categorie
+    spring.datasource.username=admin
+    spring.datasource.password=password
+    spring.datasource.driver-class-name=org.postgresql.Driver
+
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+    spring.jpa.hibernate.ddl-auto=update
+    spring.jpa.show-sql=true
+    spring.jpa.properties.hibernate.format_sql=true
+    spring.jpa.generate-ddl = true
+
+    server.port=8087
+    #Eureka
+    spring.application.name=ms-categorie
+    eureka.client.serviceUrl.defaultZone=http://eureka-server-service:8761
+    spring.cloud.discovery.enabled=true
