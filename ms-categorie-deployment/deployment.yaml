@@ -33,6 +33,10 @@ spec:
             value: admin
           - name: SPRING_JPA_HIBERNATE_DDL_AUTO
             value: update
+          - name: SPRING_APPLICATION_NAME
+            value: "ms-categorie"
+          - name: EUREKA_SERVER_URL
+            value: "http://eureka-server-service:8761/eureka/"
         # volumeMounts:
         # - name: categorie-volume
         #   mountPath: "/config"
