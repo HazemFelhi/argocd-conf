@@ -4,7 +4,7 @@ metadata:
   name: microservice-config
 data:
   categorie.properties: |-
-    spring.datasource.url=jdbc:postgresql://postgres-service:5432/categorie
+    spring.datasource.url=jdbc:postgresql://10.42.0.107:5432/categorie
     spring.datasource.username=admin
     spring.datasource.password=password
     spring.datasource.driver-class-name=org.postgresql.Driver
