@@ -12,8 +12,19 @@ spec:
       labels:
         app: ms-categorie
     spec:
+      volumes:
+      - name: categorie-volume
+        configMap:
+          name: microservice-config
+          items:
+          - key: "categorie.properties"
+            path: "categorie.properties"
       containers:
       - name: ms-categorie
         image: docker.io/hazemfelhi/ms-categorie:v3 #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8087
+        volumeMounts:
+        - name: categorie-volume
+          mountPath: "/config"
+          readOnly: true
