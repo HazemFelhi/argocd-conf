@@ -14,6 +14,22 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: docker.io/hazemfelhi/postgres:v7 #docker.io/moohamedd/angular-app:v1 
+        image: postgres #docker.io/hazemfelhi/postgres:v7 #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: postgres_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: postgres_password
+          - name: POSTGRES_DB # Setting Database Name from a 'ConfigMap'
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-conf
+                key: name
