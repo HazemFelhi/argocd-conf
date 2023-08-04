@@ -38,3 +38,11 @@ spec:
                 port:
                   number: 8761
 
+          - path: /ms-categorie
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-categorie-service
+                port:
+                  number: 8087
+
