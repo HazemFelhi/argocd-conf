@@ -36,7 +36,8 @@ spec:
           - name: SPRING_APPLICATION_NAME
             value: "ms-categorie"
           - name: EUREKA_SERVER_URL
-            value: "http://eureka-server-service:8761/eureka/"
+            value: "http://eureka-server-service.default.svc.cluster.local:8761/eureka/"
+
         # volumeMounts:
         # - name: categorie-volume
         #   mountPath: "/config"
