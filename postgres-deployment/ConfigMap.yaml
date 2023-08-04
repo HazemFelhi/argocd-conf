@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: postgres-conf
 data:
-  host: postgres
+  host: postgres-service
   name: categorie
