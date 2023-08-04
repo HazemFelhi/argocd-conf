@@ -21,22 +21,22 @@ spec:
       #       path: "categorie.properties"
       containers:
       - name: ms-categorie
-        image: docker.io/hazemfelhi/ms-categorie:rm #docker.io/moohamedd/angular-app:v1 
+        image: docker.io/hazemfelhi/ms-categorie:mm #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8087
-        env:
-          - name: SPRING_DATASOURCE_PASSWORD
-            value: password
-          - name: SPRING_DATASOURCE_URL
-            value: jdbc:postgresql://postgres-service:5432/categorie?useSSL=false
-          - name: SPRING_DATASOURCE_USERNAME
-            value: admin
-          - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-            value: update
-          - name: SPRING_APPLICATION_NAME
-            value: "ms-categorie"
-          - name: EUREKA_SERVER_URL
-            value: "http://eureka-server-service:8761"
+        # env:
+        #   - name: SPRING_DATASOURCE_PASSWORD
+        #     value: password
+        #   - name: SPRING_DATASOURCE_URL
+        #     value: jdbc:postgresql://postgres-service:5432/categorie?useSSL=false
+        #   - name: SPRING_DATASOURCE_USERNAME
+        #     value: admin
+        #   - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+        #     value: update
+        #   - name: SPRING_APPLICATION_NAME
+        #     value: "ms-categorie"
+        #   - name: EUREKA_SERVER_URL
+        #     value: "http://eureka-server-service:8761"
           
 
         # volumeMounts:
