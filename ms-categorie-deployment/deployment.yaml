@@ -21,7 +21,7 @@ spec:
       #       path: "categorie.properties"
       containers:
       - name: ms-categorie
-        image: docker.io/hazemfelhi/ms-categorie:vf #docker.io/moohamedd/angular-app:v1 
+        image: docker.io/hazemfelhi/ms-categorie:cf #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8087
         env:
@@ -37,6 +37,7 @@ spec:
             value: "ms-categorie"
           - name: EUREKA_SERVER_URL
             value: "http://eureka-server-service:8761"
+          
 
         # volumeMounts:
         # - name: categorie-volume
