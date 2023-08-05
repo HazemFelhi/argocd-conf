@@ -12,31 +12,34 @@ spec:
       labels:
         app: ms-categorie
     spec:
-      # volumes:
-      # - name: categorie-volume
-      #   configMap:
-      #     name: microservice-config
-      #     items:
-      #     - key: "categorie.properties"
-      #       path: "categorie.properties"
+      volumes:
+      - name: categorie-volume
+        configMap:
+          name: microservice-config
+          items:
+          - key: "categorie.properties"
+            path: "categorie.properties"
       containers:
       - name: ms-categorie
         image: docker.io/hazemfelhi/ms-categorie:ll #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8087
-        # env:
-        #   - name: SPRING_DATASOURCE_PASSWORD
-        #     value: password
-        #   - name: SPRING_DATASOURCE_URL
-        #     value: jdbc:postgresql://postgres-service:5432/categorie?useSSL=false
-        #   - name: SPRING_DATASOURCE_USERNAME
-        #     value: admin
-        #   - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-        #     value: update
-        #   - name: SPRING_APPLICATION_NAME
-        #     value: "ms-categorie"
-        #   - name: EUREKA_SERVER_URL
-        #     value: "http://eureka-server-service:8761"
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_password
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: hostname-config
+                key: postgres_host
           
 
         # volumeMounts:
