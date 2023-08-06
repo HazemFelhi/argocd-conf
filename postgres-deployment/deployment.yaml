@@ -1,55 +1,85 @@
-
----
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: postgres
+  name: postgresql-claim0
+  labels:
+    type: local
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      volumes:
-        - name: postgres-storage
-          persistentVolumeClaim:
-            claimName: postgres-pv-claim
-      containers:
-        - image: postgres
-          name: postgres
-          env:
-            - name: POSTGRES_DB
-              value: cumulus
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-config
-                  key: postgres_user
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-config
-                  key: postgres_password
-            - name: PGDATA
-              value: /var/lib/postgresql/data/pgdata
-          ports:
-            - containerPort: 5432
-              name: postgres
-          volumeMounts:
-            - name: postgres-storage
-              mountPath: /var/lib/postgresql/data
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/Users/hazem/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgresql-claim0
+  labels:
+    app: postgresql
+    tier: database
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service
+  name: postgresql
+  labels:
+    app: postgresql
+    tier: database
 spec:
-  type: ClusterIP
   ports:
     - port: 5432
+      targetPort: 5432
   selector:
-    app: postgres
+    app: postgresql
+    tier: database
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+  labels:
+    app: postgresql
+    tier: database
+spec:
+  selector:
+    matchLabels:
+      app: postgresql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: postgresql
+        tier: database
+    spec:
+      containers:
+      - name: postgresql
+        image: postgres:12
+        imagePullPolicy: "IfNotPresent"
+        env:
+          - name: POSTGRES_DB
+            value: northwind
+          - name: POSTGRES_USER
+            value: postgres
+          - name: POSTGRES_PASSWORD
+            value: password
+        ports:
+          - containerPort: 5432
+            name: postgresql
+        volumeMounts:
+          - name: postgresql-claim0
+            mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgresql-claim0
+        persistentVolumeClaim:
+          claimName: postgresql-claim0
+
