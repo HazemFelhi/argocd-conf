@@ -19,7 +19,7 @@ spec:
           persistentVolumeClaim:
             claimName: postgres-pv-claim
       containers:
-        - image: postgres
+        - image: docker.io/hazemfelhi/postgres:vf
           name: postgres
           env:
             - name: POSTGRES_USER
