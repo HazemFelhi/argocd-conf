@@ -12,13 +12,6 @@ spec:
       labels:
         app: ms-categorie
     spec:
-      volumes:
-      - name: categorie-volume
-        configMap:
-          name: microservice-config
-          items:
-          - key: "categorie.properties"
-            path: "categorie.properties"
       containers:
       - name: ms-categorie
         image: docker.io/hazemfelhi/ms-categorie:vv #docker.io/moohamedd/angular-app:v1 
@@ -26,20 +19,23 @@ spec:
         - containerPort: 8087
         env:
           - name: POSTGRES_USER
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-config
-                key: postgres_user
+            value: postgres
+            # valueFrom:
+            #   configMapKeyRef:
+            #     name: postgres-config
+            #     key: postgres_user
           - name: POSTGRES_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-config
-                key: postgres_password
+            value: password
+            # valueFrom:
+            #   configMapKeyRef:
+            #     name: postgres-config
+            #     key: postgres_password
           - name: POSTGRES_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: hostname-config
-                key: postgres_host
+            value: jdbc:postgresql://postgresql:5432/cumulus?useSSL=false
+            # valueFrom:
+            #   configMapKeyRef:
+            #     name: hostname-config
+            #     key: postgres_host
           
 
         # volumeMounts:
