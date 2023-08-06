@@ -46,10 +46,6 @@ spec:
                 port:
                   number: 8087
           - path: /sonarqube
-            pathType: Prefix
-            backend:
-              service:
-                name: sonarqube-sonarqube-lts 
-                port:
-                  number: 9000
+            serviceName: sonarqube-sonarqube-lts
+            servicePort: 9000
 
