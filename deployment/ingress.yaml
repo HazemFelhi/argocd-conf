@@ -45,4 +45,11 @@ spec:
                 name: ms-categorie-service
                 port:
                   number: 8087
+          - path: /sonarqube
+            pathType: Prefix
+            backend:
+              service:
+                name: sonarqube-sonarqube-lts 
+                port:
+                  number: 9000
 
