@@ -7,6 +7,6 @@ spec:
     app: ms-categorie
   #type: NodePort
   ports:
-  - port: 8087
+  - port: 8080
     protocol: TCP
-    targetPort: 8087
+    targetPort: 8080
