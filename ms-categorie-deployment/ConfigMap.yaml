@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: hostname-config
 data:
-  postgres_host: $(kubectl get svc postgres-service -n coffee-shop -o jsonpath="{.spec.clusterIP}")
+  postgres_host: jdbc:postgresql://postgres-service:5432/cumulus?useSSL=false

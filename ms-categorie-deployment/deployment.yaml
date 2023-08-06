@@ -21,7 +21,7 @@ spec:
             path: "categorie.properties"
       containers:
       - name: ms-categorie
-        image: docker.io/hazemfelhi/app:v1 #docker.io/moohamedd/angular-app:v1 
+        image: docker.io/hazemfelhi/appp:v1 #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 8080
         env:
