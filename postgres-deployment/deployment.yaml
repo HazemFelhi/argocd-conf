@@ -67,7 +67,7 @@ spec:
         imagePullPolicy: "IfNotPresent"
         env:
           - name: POSTGRES_DB
-            value: cumulus
+            value: northwind
           - name: POSTGRES_USER
             value: postgres
           - name: POSTGRES_PASSWORD
