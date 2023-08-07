@@ -31,7 +31,7 @@ spec:
             #     name: postgres-config
             #     key: postgres_password
           - name: POSTGRES_HOST
-            value: jdbc:postgresql://postgresql:5432/cumulus?useSSL=false
+            value: jdbc:postgresql://postgresql:5432/northwind?useSSL=false
             # valueFrom:
             #   configMapKeyRef:
             #     name: hostname-config
