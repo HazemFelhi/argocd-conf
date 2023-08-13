@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: eureka-server
-        image: docker.io/hazemfelhi/eureka-server:v1 #docker.io/moohamedd/angular-app:v1 
+        image: docker.io/hazemfelhi/eureka-server:v2 #docker.io/moohamedd/angular-app:v1 
         ports:
         - containerPort: 9102
