@@ -7,9 +7,9 @@ spec:
     app: eureka-server
   #type: NodePort
   ports:
-  - port: 8761
+  - port: 9102
     protocol: TCP
-    targetPort: 8761
+    targetPort: 9102
     #nodePort: 30155
 
   

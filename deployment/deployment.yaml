@@ -16,4 +16,4 @@ spec:
       - name: eureka-server
         image: docker.io/hazemfelhi/eureka-server:latest #docker.io/moohamedd/angular-app:v1 
         ports:
-        - containerPort: 8761
+        - containerPort: 9102
