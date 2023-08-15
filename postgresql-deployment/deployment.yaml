@@ -22,10 +22,10 @@ spec:
           image: postgresql
           imagePullPolicy: "IfNotPresent"
           env:
-            - name: MYSQL_ROOT_PASSWORD
+            - name: POSTGRES_PASSWORD
               value: root
-            - name: MYSQL_DATABASE
-              value: fleetdb
+            - name: POSTGRES_DB
+              value: categorie
           ports:
             - containerPort: 5432
               name: postgresql
