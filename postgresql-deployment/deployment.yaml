@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: postgresql
-          image: postgresql
+          image: postgres
           imagePullPolicy: "IfNotPresent"
           env:
             - name: POSTGRES_PASSWORD
