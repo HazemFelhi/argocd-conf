@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-categorie
+spec:
+  selector:
+    matchLabels:
+      app: ms-categorie
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-categorie
+    spec:
+      containers:
+        - name: ms-categorie
+          image: docker.io/hazemfelhi/ms-categorie:v0
+          ports:
+            - containerPort: 8070
+          env:   # Setting Environmental Variables
+            - name: DB_HOST   # Setting Database host address
+              value: postgresql
+            - name: DB_NAME  # Setting Database name
+              value: categorie
+            - name: DB_USERNAME  # Setting Database username
+              value: root
+            - name: DB_PASSWORD # Setting Database password
+              value: root
