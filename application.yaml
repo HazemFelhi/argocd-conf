@@ -49,52 +49,52 @@ spec:
       selfHeal: true
       prune: true
 
-# ---
+---
 
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: application-ms-categorie
-#   namespace: argocd
-# spec:
-#   project: default
-#   source:
-#     repoURL: https://github.com/HazemFelhi/argocd-conf.git
-#     targetRevision: HEAD
-#     path: ms-categorie-deployment
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: coffee-shop
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-ms-categorie
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/HazemFelhi/argocd-conf.git
+    targetRevision: HEAD
+    path: categorie-deployment
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: coffee-shop
   
-#   syncPolicy:
-#     syncOptions:
-#     - CreateNamespace=true
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
 
-#     automated:
-#       selfHeal: true
-#       prune: true
+    automated:
+      selfHeal: true
+      prune: true
 
-# ---
+---
 
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: application-postgres
-#   namespace: argocd
-# spec:
-#   project: default
-#   source:
-#     repoURL: https://github.com/HazemFelhi/argocd-conf.git
-#     targetRevision: HEAD
-#     path: postgres-deployment
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: coffee-shop
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-postgres
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/HazemFelhi/argocd-conf.git
+    targetRevision: HEAD
+    path: postgresql-deployment
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: coffee-shop
   
-#   syncPolicy:
-#     syncOptions:
-#     - CreateNamespace=true
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
 
-#     automated:
-#       selfHeal: true
-#       prune: true
+    automated:
+      selfHeal: true
+      prune: true
