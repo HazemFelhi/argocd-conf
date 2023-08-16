@@ -36,7 +36,7 @@ spec:
               service:
                 name: ms-categorie-service
                 port:
-                  number: 8070
+                  number: 80
 
 
 
