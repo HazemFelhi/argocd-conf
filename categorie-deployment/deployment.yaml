@@ -23,6 +23,6 @@ spec:
             - name: DB_NAME  # Setting Database name
               value: categorie
             - name: DB_USERNAME  # Setting Database username
-              value: root
+              value: postgres
             - name: DB_PASSWORD # Setting Database password
               value: root
