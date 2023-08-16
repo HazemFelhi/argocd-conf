@@ -30,13 +30,13 @@ spec:
     - host: ingress-nginx.com
       http:
         paths:
-          - path: /eureka
+          - path: /ms-categorie
             pathType: Prefix
             backend:
               service:
-                name: eureka-server-service
+                name: ms-categorie-service
                 port:
-                  number: 9102
+                  number: 8070
 
 
 
