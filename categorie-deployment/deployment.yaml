@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ms-categorie
-          image: docker.io/hazemfelhi/ms-categorie:v3
+          image: docker.io/hazemfelhi/ms-categorie:v4
           ports:
             - containerPort: 8070
           env:   # Setting Environmental Variables
