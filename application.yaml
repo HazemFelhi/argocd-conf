@@ -98,3 +98,33 @@ spec:
     automated:
       selfHeal: true
       prune: true
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: awx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: adwerx/awx
+    repoURL: https://github.com/AdWerx/charts/tree/master/awx
+    targetRevision: master
+    path: awx
+    helm:
+      releaseName: adwerx/awx
+      parameters:
+      - name: "service.type"
+        value: LoadBalancer
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: infra
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
