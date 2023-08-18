@@ -111,7 +111,7 @@ spec:
     chart: adwerx/awx
     repoURL: https://github.com/AdWerx/charts/tree/master/awx
     targetRevision: master
-    path: awx
+    #path: awx
     helm:
       releaseName: adwerx/awx
       parameters:
