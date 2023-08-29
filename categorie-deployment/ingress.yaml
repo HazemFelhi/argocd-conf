@@ -23,7 +23,7 @@ kind: Ingress
 metadata:
   name: my-ingress
   annotations:
-    #kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: contour-internal
     #nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
