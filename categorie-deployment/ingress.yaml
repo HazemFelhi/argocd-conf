@@ -23,15 +23,16 @@ kind: Ingress
 metadata:
   name: my-ingress
   annotations:
-    kubernetes.io/ingress.class: contour-internal
-    #nginx.ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/app-root: "/"
 spec:
   rules:
     - host: ingress.com
       http:
         paths:
           - path: /ms-categorie
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: ms-categorie-service
@@ -39,7 +40,7 @@ spec:
                   number: 80
 
           - path: /argo
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: argocd-server
