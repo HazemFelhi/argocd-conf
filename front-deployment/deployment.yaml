@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: front
-          image: docker.io/hazemfelhi/front
+          image: docker.io/hazemfelhi/front:vf
           ports:
             - containerPort: 80
   strategy:
