@@ -1,0 +1,13 @@
+# Define a 'Service' To Expose the application
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-service
+spec:
+  ports:
+    - protocol: "TCP"
+      port: 8089    # Port inside the cluster
+      protocol: TCP
+      targetPort: 8089
+  selector:
+    app: ms-service
