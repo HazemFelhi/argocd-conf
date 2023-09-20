@@ -16,7 +16,16 @@ spec:
         - name: ms-categoriee
           image: docker.io/hazemfelhi/ms-categoriee:vf
           ports:
-            - containerPort: 8070
+            - containerPort: 8071
+          env:   # Setting Environmental Variables
+            - name: DB_HOST   # Setting Database host address
+              value: postgresql
+            - name: DB_NAME  # Setting Database name
+              value: categorie
+            - name: DB_USERNAME  # Setting Database username
+              value: postgres
+            - name: DB_PASSWORD # Setting Database password
+              value: root
   strategy:
     canary:
       steps:
