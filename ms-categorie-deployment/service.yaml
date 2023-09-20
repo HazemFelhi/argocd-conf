@@ -1,0 +1,13 @@
+# Define a 'Service' To Expose the application
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-categoriee
+spec:
+  ports:
+    - protocol: "TCP"
+      port: 8070    # Port inside the cluster
+      protocol: TCP
+      targetPort: 8070
+  selector:
+    app: ms-categorie
