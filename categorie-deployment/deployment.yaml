@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ms-categorie
-          image: docker.io/hazemfelhi/ms-categorie:v5
+          image: docker.io/hazemfelhi/ms-service:vf #ms-categorie:v5
           ports:
             - containerPort: 8070
           env:   # Setting Environmental Variables
